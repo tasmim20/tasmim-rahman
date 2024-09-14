@@ -11,6 +11,10 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        transparent: "transparent",
+        current: "currentColor",
+
+        lightpink: "#a52d2947",
       },
     },
   },
