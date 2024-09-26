@@ -78,7 +78,7 @@ const PortfolioHero = () => {
   `;
 
   return (
-    <div className="text-gray-300 min-h-screen mx-auto max-w-7xl items-center relative mb-14">
+    <div className="text-gray-300 min-h-screen mx-auto max-w-7xl items-center relative mb-8">
       <div className=" lg:block absolute top-3 right-5 mt-10">
         <Image
           src={bulb}
@@ -120,13 +120,13 @@ const PortfolioHero = () => {
           {/* Buttons */}
           <div className="space-x-4 space-y-2">
             <Link href="projects">
-              <button className="bg-transparent uppercase hover:bg-pink-700 text-pink-800 font-semibold hover:text-white py-2 px-4 border border-pink-800 hover:border-transparent rounded">
+              <button className="bg-transparent uppercase hover:bg-pink-700 text-pink-800 font-semibold hover:text-white py-2 px-4 border border-pink-800  hover:border-transparent rounded">
                 See my Latest Works
               </button>
             </Link>
 
             <Link href="/contact">
-              <button className="bg-transparent hover:bg-pink-700 text-pink-800 font-semibold hover:text-white py-2 px-4 border border-pink-800 hover:border-transparent rounded">
+              <button className="bg-transparent hover:bg-pink-700 text-pink-800 font-semibold hover:text-white py-2 px-4 border mt-2 border-pink-800 hover:border-transparent rounded">
                 CONTACT ME
               </button>
             </Link>
