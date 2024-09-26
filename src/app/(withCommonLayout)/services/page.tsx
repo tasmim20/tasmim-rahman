@@ -4,7 +4,7 @@ import { Code, BookOpen, FileCode } from "lucide-react";
 
 // Define TypeScript types for props
 interface ServiceCardProps {
-  icon: React.ElementType; // Icon component
+  icon: React.ElementType;
   title: string;
   description: string;
 }
@@ -16,9 +16,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
 }) => (
   <div
     style={{
-      // Semi-transparent neon background
-      // Semi-transparent neon background
-      boxShadow: "0 8px 15px rgba(255, 20, 147, 0.8)", // Neon glow effect with emphasis on bottom-right
+      boxShadow: "0 8px 15px rgba(255, 20, 147, 0.8)",
     }}
     className="bg-[#1e2235] p-6 rounded-lg relative"
   >

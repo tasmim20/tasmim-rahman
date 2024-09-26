@@ -16,7 +16,6 @@ const Resume = () => {
       </header>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        {/* Left Column - Main Info */}
         <div className="lg:col-span-2">
           <h2 className="text-3xl font-bold mb-2">Tasmim Rahman</h2>
           <p className="text-gray-400 mb-4">MERN Stack Developer</p>
@@ -140,8 +139,8 @@ const Resume = () => {
         <Link href="" download>
           <button
             style={{
-              backgroundColor: "rgba(255, 20, 147, 0.6)", // Semi-transparent neon background
-              boxShadow: "0 4px 15px rgba(255, 20, 147, 0.8)", // Neon glow effect
+              backgroundColor: "rgba(255, 20, 147, 0.6)",
+              boxShadow: "0 4px 15px rgba(255, 20, 147, 0.8)",
             }}
             className="text-center text-gray-300  uppercase font-semibold py-3 px-5 rounded-md transition-transform duration-300 transform hover:scale-110"
           >

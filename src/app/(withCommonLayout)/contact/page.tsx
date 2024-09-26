@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 
 const Contact = () => {
-  const [showModal, setShowModal] = useState(false); // State to handle modal visibility
+  const [showModal, setShowModal] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -11,7 +11,7 @@ const Contact = () => {
   });
 
   const handleModalToggle = () => {
-    setShowModal(!showModal); // Toggle modal visibility
+    setShowModal(!showModal);
   };
 
   const handleChange = (
@@ -27,7 +27,6 @@ const Contact = () => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log("Form submitted:", formData);
-    // Add your form submission logic here
   };
 
   return (
@@ -127,7 +126,6 @@ const Contact = () => {
         </div>
       )}
 
-      {/* Overlay */}
       {showModal && (
         <div
           className="fixed inset-0 bg-black opacity-50 z-0"

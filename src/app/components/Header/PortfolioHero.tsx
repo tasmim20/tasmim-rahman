@@ -5,7 +5,6 @@ import Link from "next/link";
 import bulb from "../../assets/giphy.gif";
 
 const PortfolioHero = () => {
-  // Memoize the titles array
   const titles = useMemo(
     () => [
       "Frontend Developer",
@@ -18,7 +17,7 @@ const PortfolioHero = () => {
 
   const [currentTitle, setCurrentTitle] = useState(titles[0]);
   const [index, setIndex] = useState(0);
-  const [typing, setTyping] = useState(true); // To control typing and deleting
+  const [typing, setTyping] = useState(true);
 
   // Typewriter effect with cycling between titles
   useEffect(() => {
@@ -53,7 +52,7 @@ const PortfolioHero = () => {
     timeout = setTimeout(typeTitle, typingSpeed);
 
     return () => clearTimeout(timeout); // Cleanup the timeout on unmount
-  }, [index, typing, titles]); // Re-run when index or typing changes
+  }, [index, typing, titles]);
 
   // CSS keyframes for animations
   const style = `
@@ -79,9 +78,8 @@ const PortfolioHero = () => {
   `;
 
   return (
-    <div className="text-gray-300 min-h-screen mx-auto max-w-7xl items-center relative">
-      {/* Bulb image only visible on desktop */}
-      <div className=" lg:block absolute top-3 right-10 mt-10">
+    <div className="text-gray-300 min-h-screen mx-auto max-w-7xl items-center relative mb-14">
+      <div className=" lg:block absolute top-3 right-5 mt-10">
         <Image
           src={bulb}
           width={100}
@@ -90,9 +88,8 @@ const PortfolioHero = () => {
           className="rounded-lg   "
         />
       </div>
-      <style>{style}</style> {/* Inject the keyframes into the component */}
+      <style>{style}</style>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center my-10 space-y-8">
-        {/* Image Section */}
         <div className="text-center">
           <Image
             src={download}
@@ -121,7 +118,7 @@ const PortfolioHero = () => {
           </h1>
 
           {/* Buttons */}
-          <div className="space-x-4">
+          <div className="space-x-4 space-y-2">
             <Link href="projects">
               <button className="bg-transparent uppercase hover:bg-pink-700 text-pink-800 font-semibold hover:text-white py-2 px-4 border border-pink-800 hover:border-transparent rounded">
                 See my Latest Works

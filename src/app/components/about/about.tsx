@@ -1,6 +1,7 @@
 import Image from "next/image";
 import React from "react";
-import educationgirl from "../../assets/education-unlimited-hero.svg";
+
+import gif from "../../assets/education-unlimited-hero.svg";
 import Link from "next/link";
 
 const AboutMe = () => {
@@ -47,11 +48,11 @@ const AboutMe = () => {
           {/* Right-Side Image with Floating Animation */}
           <div className="lg:w-1/2 w-full flex justify-center">
             <Image
-              src={educationgirl}
+              src={gif}
               width={400}
               height={400}
               alt="Tasmim Rahman"
-              className="rounded-lg mb-10 animate-float"
+              className="rounded-lg mb-10 animate-float "
             />
           </div>
         </div>

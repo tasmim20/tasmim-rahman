@@ -64,58 +64,52 @@ const ProjectCard = ({
 }) => (
   <div
     style={{
-      // Semi-transparent neon background
-      // Semi-transparent neon background
-      boxShadow: "0 5px 10px rgba(255, 20, 147, 0.4)", // Neon glow effect with emphasis on bottom-right
+      boxShadow: "0 5px 10px rgba(255, 20, 147, 0.4)", // Neon glow effect
     }}
-    className="bg-[#1e2235] max-w-md rounded-lg overflow-hidden shadow-lg text-gray-200 transition-all transform hover:scale-105 flex flex-col"
+    className="bg-[#1e2235] rounded-lg overflow-hidden shadow-lg text-gray-200 transition-transform transform hover:scale-105 flex flex-col mx-7 md:mx-0"
   >
-    <div className=" ">
-      <div className=" ">
-        <Image
-          src={imageSrc}
-          alt={title}
-          layout="responsive"
-          width={800}
-          height={1000}
-          className="object-cover group-hover:opacity-80  transition-opacity"
-        />
-      </div>
-    </div>
-    <div className="px-5 py-6  flex flex-col justify-between flex-grow">
-      <div className="text-center">
-        <h3 className="font-bold text-xl mb-4 text-gray-300 ">{title}</h3>
-      </div>
+    <Image
+      src={imageSrc}
+      alt={title}
+      layout="responsive"
+      width={800}
+      height={600}
+      className="object-cover"
+    />
+    <div className="px-5 py-6 flex flex-col justify-between flex-grow">
+      <h3 className="font-bold text-xl mb-4 text-gray-300 text-center">
+        {title}
+      </h3>
       <div className="mt-auto">
-        <div className="flex gap-4 justify-center  border-b border-b-gray-600 my-5 text-pink-800">
+        <div className="flex gap-4 justify-center border-b border-b-gray-600 my-5 text-pink-800">
           <a
-            className=" font-bold hover:underline flex items-center gap-1"
+            className="font-bold hover:underline flex items-center gap-1"
             href={liveLink}
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Laptop size={18} className="" /> Live Link
+            <Laptop size={18} /> Live Link
           </a>
           <a
-            className=" font-bold hover:underline flex items-center gap-1"
+            className="font-bold hover:underline flex items-center gap-1"
             href={frontEndLink}
             target="_blank"
             rel="noopener noreferrer"
           >
-            <ExternalLink size={18} className="" /> Front-End
+            <ExternalLink size={18} /> Front-End
           </a>
           <a
-            className=" font-bold hover:underline flex items-center gap-1"
+            className="font-bold hover:underline flex items-center gap-1"
             href={backEndLink}
             target="_blank"
             rel="noopener noreferrer"
           >
-            <ExternalLink size={18} className="" /> Back-End
+            <ExternalLink size={18} /> Back-End
           </a>
         </div>
         <button
           onClick={onDetailsClick}
-          className=" bg-[#a54657] border border-gray-700 text-gray-300  font-bold py-2 px-4 rounded-full flex items-center justify-center w-full text-sm"
+          className="bg-[#a54657] border border-gray-700 text-gray-300 font-bold py-2 px-4 rounded-full flex items-center justify-center w-full text-sm"
         >
           <Info className="mr-2" /> View Details
         </button>
@@ -137,17 +131,16 @@ const Projects: React.FC = () => {
 
   return (
     <div id="projects" className="my-10 mb-20 text-gray-300 mx-auto max-w-8xl">
-      <div className="mt-16 mb-10 max-w-6xl mx-auto">
-        <h2 className="text-4xl font-bold  mt-10">Check Out My Projects</h2>
-        <p className="mt-3">
+      <div className="ps-5  mt-16 mb-10 max-w-6xl mx-auto ">
+        <h2 className="text-4xl font-bold mt-10 ">Check Out My Projects</h2>
+        <p className="mt-3 ">
           Embark on a Journey Through My Diverse and Innovative Web Projects
-          Showcase,
-          <br /> Where I Keep Abreast of the Latest Trends and Technologies in
-          the Field
+          Showcase, Where I Keep Abreast of the Latest Trends and Technologies
+          in the Field.
         </p>
       </div>
 
-      <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-3 mx-auto max-w-6xl">
+      <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3 mx-auto max-w-6xl">
         {projects.map((project, index) => (
           <ProjectCard
             key={index}
