@@ -1,16 +1,20 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import download from "../../assets/cute-girl.png";
 import Image from "next/image";
 import Link from "next/link";
+import bulb from "../../assets/giphy.gif";
 
 const PortfolioHero = () => {
-  // Titles to be cycled through by the typewriter
-  const titles = [
-    "Frontend Developer",
-    "MERN Stack Developer",
-    "React JS Developer",
-    "Next Level Developer",
-  ];
+  // Memoize the titles array
+  const titles = useMemo(
+    () => [
+      "Frontend Developer",
+      "MERN Stack Developer",
+      "React JS Developer",
+      "Next Level Developer",
+    ],
+    []
+  );
 
   const [currentTitle, setCurrentTitle] = useState(titles[0]);
   const [index, setIndex] = useState(0);
@@ -49,7 +53,7 @@ const PortfolioHero = () => {
     timeout = setTimeout(typeTitle, typingSpeed);
 
     return () => clearTimeout(timeout); // Cleanup the timeout on unmount
-  }, [index, typing]); // Re-run when index or typing changes
+  }, [index, typing, titles]); // Re-run when index or typing changes
 
   // CSS keyframes for animations
   const style = `
@@ -75,7 +79,17 @@ const PortfolioHero = () => {
   `;
 
   return (
-    <div className="text-gray-300 min-h-screen mx-auto max-w-7xl items-center">
+    <div className="text-gray-300 min-h-screen mx-auto max-w-7xl items-center relative">
+      {/* Bulb image only visible on desktop */}
+      <div className=" lg:block absolute top-3 right-10 mt-10">
+        <Image
+          src={bulb}
+          width={100}
+          height={100}
+          alt="Bulb"
+          className="rounded-lg   "
+        />
+      </div>
       <style>{style}</style> {/* Inject the keyframes into the component */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center my-10 space-y-8">
         {/* Image Section */}
@@ -91,10 +105,10 @@ const PortfolioHero = () => {
 
         {/* Text Section */}
         <div className="text-center">
-          <h1 className="text-4xl  font-bold mb-4 -mt-5">
+          <h1 className="text-4xl font-bold mb-4 -mt-5">
             Hey There!
             <br />
-            I'm <span className="text-pink-700">Tasmim Rahman</span>
+            I&apos;m <span className="text-pink-700">Tasmim Rahman</span>
             <br />
             <span
               className="inline-block overflow-hidden whitespace-nowrap border-r-2 border-pink-600 pr-1"

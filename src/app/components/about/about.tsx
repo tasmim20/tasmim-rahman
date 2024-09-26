@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React from "react";
-import download from "../../assets/cat.gif";
+import educationgirl from "../../assets/education-unlimited-hero.svg";
 import Link from "next/link";
 
 const AboutMe = () => {
@@ -18,17 +18,17 @@ const AboutMe = () => {
             </h1>
             <ul className="list-disc list-inside text-lg leading-relaxed space-y-4 text-gray-300">
               <li>
-                Hey there! I'm a passionate
+                Hey there! I&apos;m a passionate
                 <span className="text-pink-700"> MERN Stack Developer</span> who
                 is deeply in love with coding 💻 and creating amazing web
                 experiences 🌐.
               </li>
 
               <li>
-                If you're looking for someone who’s eager to bring creative
-                ideas to life 💡, check out my portfolio! I'm open to
-                collaborations, freelance projects, or any exciting
-                opportunities 💼. Let’s build something great together!
+                If you&apos;re looking for someone who&apos;s eager to bring
+                creative ideas to life 💡, check out my portfolio! I&apos;m open
+                to collaborations, freelance projects, or any exciting
+                opportunities 💼. Let&apos;s build something great together!
               </li>
             </ul>
 
@@ -44,14 +44,14 @@ const AboutMe = () => {
             </Link>
           </div>
 
-          {/* Right-Side Image */}
+          {/* Right-Side Image with Floating Animation */}
           <div className="lg:w-1/2 w-full flex justify-center">
             <Image
-              src={download}
+              src={educationgirl}
               width={400}
               height={400}
               alt="Tasmim Rahman"
-              className="rounded-lg mb-10"
+              className="rounded-lg mb-10 animate-float"
             />
           </div>
         </div>

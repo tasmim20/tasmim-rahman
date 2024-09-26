@@ -1,7 +1,5 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
-import Head from "next/head";
-import Image from "next/image";
 import PortfolioHero from "./PortfolioHero";
 import AboutMe from "../about/about";
 import Contact from "../Contact/Contact";
@@ -55,14 +53,15 @@ const Header: React.FC = () => {
             transition: "opacity 1s ease-out", // Smooth transition for visibility changes
             opacity: showBlob ? 1 : 0, // Toggle visibility
           }}
-        ></div>
+        >
+          {" "}
+        </div>
 
         {/* Content */}
         <PortfolioHero />
         <AboutMe />
         <Contact />
       </div>
-      e
     </>
   );
 };

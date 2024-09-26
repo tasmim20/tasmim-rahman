@@ -10,7 +10,6 @@ import {
   ChevronRight,
   ChevronLeft,
 } from "lucide-react";
-
 import Link from "next/link"; // Import Next.js Link component for navigation
 
 const Navbar = () => {
@@ -40,7 +39,7 @@ const Navbar = () => {
           }}
         >
           <ChevronLeft size={30} />
-          <span>Tasmim Rahman</span>
+          <span>Tasmim Rahman /</span>
           <ChevronRight size={30} />
         </span>
       </Link>
@@ -58,7 +57,7 @@ const Navbar = () => {
             <Link
               href={`/${item.name.toLowerCase()}`}
               key={item.name}
-              className="flex items-center space-x-2  text-gray-300 px-2 py-2 rounded hover:bg-pink-800"
+              className="flex items-center space-x-2 text-gray-300 px-2 py-2 rounded hover:bg-pink-800"
               style={{
                 textShadow: "0 0 5px rgba(255, 105, 180, 0.8)", // Neon text glow
               }}
@@ -83,15 +82,15 @@ const Navbar = () => {
       </Link>
 
       {/* Mobile Menu Button */}
-      <button onClick={toggleMenu} className="md:hidden z-20">
-        {isOpen ? <X size={24} /> : <Menu size={24} />}
+      <button onClick={toggleMenu} className="md:hidden z-30">
+        {isOpen ? <X size={24} className="text-black" /> : <Menu size={24} />}
       </button>
 
       {/* Mobile Slide-In Menu */}
       <div
-        className={`fixed top-0 left-0 h-96 bg-white text-black w-64 transform ${
+        className={`fixed top-0 left-0 h-full bg-[#fcb1be] text-black w-64 transform ${
           isOpen ? "translate-x-0" : "-translate-x-full"
-        } transition-transform duration-300 ease-in-out z-10 shadow-lg`}
+        } transition-transform duration-300 ease-in-out z-20 shadow-lg`}
       >
         <button onClick={toggleMenu} className="absolute top-4 right-4">
           <X size={24} />
@@ -123,7 +122,7 @@ const Navbar = () => {
       {/* Background Overlay */}
       {isOpen && (
         <div
-          className="fixed inset-0 bg-black opacity-50 z-0"
+          className="fixed inset-0 bg-black opacity-50 z-10"
           onClick={toggleMenu}
         ></div>
       )}
