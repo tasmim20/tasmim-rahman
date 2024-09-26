@@ -19,6 +19,10 @@ const Navbar: React.FC = () => {
     setIsOpen(!isOpen);
   };
 
+  const closeMenu = () => {
+    setIsOpen(false); // Close the menu
+  };
+
   const menuItems = [
     { name: "Resume", icon: <File size={16} /> },
     { name: "Projects", icon: <Scroll size={16} /> },
@@ -102,6 +106,7 @@ const Navbar: React.FC = () => {
               href={`/${item.name.toLowerCase()}`}
               key={item.name}
               className="flex items-center space-x-2 text-gray-300 shadow-sm rounded px-4 py-1 w-full hover:bg-pink-700"
+              onClick={closeMenu} // Close the menu when link is clicked
             >
               {item.icon}
               <span>{item.name}</span>
@@ -114,6 +119,7 @@ const Navbar: React.FC = () => {
               backgroundColor: "rgba(255, 20, 147, 0.8)",
             }}
             className="text-gray-300  px-4 py-2 rounded w-full mt-4"
+            onClick={closeMenu} // Close the menu when link is clicked
           >
             Hit me Up
           </Link>
