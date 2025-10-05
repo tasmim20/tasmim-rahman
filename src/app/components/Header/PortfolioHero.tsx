@@ -55,6 +55,7 @@ const PortfolioHero = () => {
   }, [index, typing, titles]);
 
   // CSS keyframes for animations
+    // CSS keyframes for animations
   const style = `
     @keyframes glow {
       0% {

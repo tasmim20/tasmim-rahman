@@ -138,6 +138,7 @@ const Projects: React.FC = () => {
           Showcase, Where I Keep Abreast of the Latest Trends and Technologies
           in the Field.
         </p>
+        
       </div>
 
       <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3 mx-auto max-w-6xl">
