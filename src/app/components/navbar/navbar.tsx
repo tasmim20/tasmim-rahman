@@ -11,6 +11,7 @@ import {
   ChevronLeft,
 } from "lucide-react";
 import Link from "next/link";
+import { RiProfileFill } from "react-icons/ri";
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -24,10 +25,11 @@ const Navbar: React.FC = () => {
   };
 
   const menuItems = [
-    { name: "Resume", icon: <File size={16} /> },
+    { name: "About", icon: <RiProfileFill size={16} /> },
     { name: "Projects", icon: <Scroll size={16} /> },
     { name: "Services", icon: <Briefcase size={16} /> },
-    { name: "Contact", icon: <Mail size={16} /> },
+    { name: "Resume", icon: <File size={16} /> },
+    { name: "Hire", icon: <Mail size={16} /> },
   ];
 
   return (

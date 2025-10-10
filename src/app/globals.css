@@ -27,7 +27,7 @@ body {
     transform: translateY(0px);
   }
   50% {
-    transform: translateY(-15px); /* Adjust the float distance */
+    transform: translateY(-15px); 
   }
   100% {
     transform: translateY(0px);
@@ -35,5 +35,5 @@ body {
 }
 
 .animate-float {
-  animation: float 4s ease-in-out infinite; /* Adjust time and easing */
+  animation: float 4s ease-in-out infinite; 
 }

@@ -3,6 +3,9 @@ import React, { useEffect, useRef, useState } from "react";
 import PortfolioHero from "./PortfolioHero";
 import AboutMe from "../about/about";
 import Contact from "../Contact/Contact";
+import SkillsSection from "@/app/(withCommonLayout)/skills/page";
+import Goals from "@/app/(withCommonLayout)/goals/page";
+import FAQ from "@/app/(withCommonLayout)/FAQ/page";
 
 const Header: React.FC = () => {
   const blobRef = useRef<HTMLDivElement>(null);
@@ -55,6 +58,9 @@ const Header: React.FC = () => {
         {/* Content */}
         <PortfolioHero />
         <AboutMe />
+        <Goals/>
+        <SkillsSection/>
+        <FAQ/>
         <Contact />
       </div>
     </>

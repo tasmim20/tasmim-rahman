@@ -77,7 +77,7 @@ const Resume = () => {
               <p className="text-sm text-gray-400">
                 Hajee Mohammad Danesh Science & Technology University
               </p>
-              <p className="text-xs text-gray-500">2020 - Present</p>
+              <p className="text-xs text-gray-500">2020 - 2025</p>
             </div>
             <div>
               <h4 className="font-semibold">
