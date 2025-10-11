@@ -53,11 +53,20 @@ const ExpertiseServices: React.FC = () => {
   return (
     <div className="text-gray-300  p-8">
       <div className="max-w-6xl mx-auto">
-        <div className="my-10">
+        {/* <div className="my-10">
           <div>
             <h1 className="text-4xl font-bold my-5">Expertise service!</h1>
             <h2 className="text-3xl font-semibold mb-4">Let's check it out.</h2>
           </div>
+        </div> */}
+        <div className="mx-auto max-w-2xl text-center my-10">
+          <span className="inline-block rounded-full border border-white/10 px-4 py-1 text-xs tracking-wide text-white/70 backdrop-blur">
+            Services I provide
+          </span>
+          <h2 className="my-4 text-3xl font-extrabold tracking-tight sm:text-4xl text-[#ff1493]">
+            Services
+          </h2>
+          <div className="mx-auto mt-5 h-1 w-20 rounded-full bg-white/70" />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">

@@ -85,7 +85,7 @@ export default function SkillsSection() {
   return (
     <section
       aria-label="Technologies & Expertise"
-      className="relative overflow-hidden pt-20 sm:pb-10 sm:pt-16 bg-[#050f25]"
+      className="relative overflow-hidden pt-10 sm:pb-10 sm:pt-10 bg-[#050f25]"
     >
       {/* Subtle nebula background */}
       <div
@@ -101,7 +101,7 @@ export default function SkillsSection() {
           <span className="inline-block rounded-full border border-white/10 px-4 py-1 text-xs tracking-wide text-white/70 backdrop-blur">
             Technologies & Expertise
           </span>
-          <h2 className="mt-4 text-4xl font-extrabold tracking-tight sm:text-5xl">
+          <h2 className="mt-4 text-3xl font-extrabold tracking-tight sm:text-4xl">
             My Skills
           </h2>
         </div>

@@ -1,11 +1,13 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
 import PortfolioHero from "./PortfolioHero";
-import AboutMe from "../about/about";
 import Contact from "../Contact/Contact";
 import SkillsSection from "@/app/(withCommonLayout)/skills/page";
 import Goals from "@/app/(withCommonLayout)/goals/page";
 import FAQ from "@/app/(withCommonLayout)/FAQ/page";
+import ProjectsComponent from "../projectComponent/projectComponent";
+import AboutSection from "../AboutSection/AboutSection";
+import ExpertiseServices from "@/app/(withCommonLayout)/services/page";
 
 const Header: React.FC = () => {
   const blobRef = useRef<HTMLDivElement>(null);
@@ -57,10 +59,14 @@ const Header: React.FC = () => {
 
         {/* Content */}
         <PortfolioHero />
-        <AboutMe />
-        <Goals/>
-        <SkillsSection/>
-        <FAQ/>
+        {/* <Banner/> */}
+        <AboutSection />
+        {/* <AboutMe /> */}
+        <Goals />
+        <ProjectsComponent />
+        <SkillsSection />
+        <ExpertiseServices />
+        <FAQ />
         <Contact />
       </div>
     </>

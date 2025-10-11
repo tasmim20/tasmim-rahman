@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useState } from "react";
 import Image, { StaticImageData } from "next/image";
 import harmic from "../../assets/harmic2.png";
@@ -7,22 +8,22 @@ import nolan from "../../assets/directRelief.png";
 import clothingStore from "../../assets/clothing.png";
 import portfolio from "../../assets/portfolio.png";
 import event from "../../assets/event.png";
-
 import { ExternalLink, Laptop, Info } from "lucide-react";
+import Link from "next/link";
 
 interface Project {
   imgSrc: string | StaticImageData;
   title: string;
-  description: string;            // Overview text
+  description: string;
   liveLink: string;
   frontEndLink?: string;
   backEndLink?: string;
   tech: string[];
-  features?: string[];            // NEW
+  features?: string[];
 }
 
+// ✅ Use the same identifier everywhere: `projects`
 const projects: Project[] = [
-  // 1) HOCO — updated to your Overview/Technology/Features
   {
     imgSrc: hoco,
     title: "HOCO",
@@ -50,8 +51,6 @@ const projects: Project[] = [
       "Custom dashboards for students, instructors, and admin.",
     ],
   },
-
-  // 2) DIRECT-RELIEF — updated
   {
     imgSrc: nolan,
     title: "DIRECT-RELIEF",
@@ -77,8 +76,6 @@ const projects: Project[] = [
       "Authentication for user login and signup (client and server-side).",
     ],
   },
-
-  // 3) HARMIC — updated
   {
     imgSrc: harmic,
     title: "HARMIC",
@@ -104,38 +101,42 @@ const projects: Project[] = [
       "Personal dashboard to add, update, and delete blogs.",
     ],
   },
-
-  // Your added projects (unchanged)
+  // extra
   {
     imgSrc: clothingStore,
     title: "Clothing Store",
     description:
-      "Clothing Store is a modern, mobile-first e-commerce experience for fashion shopping. Explore curated collections with rich product cards and check out smoothly with a persistent, real-time cart. Product pages include detailed overview of product.",
+      "Mobile-first e-commerce with rich product cards and a persistent, real-time cart.",
     liveLink: "https://chutti-clothing-store.vercel.app/",
     frontEndLink: "https://github.com/tasmim20/clothing-store-client",
     backEndLink: "https://github.com/tasmim20/clothing-store-server",
-    tech: ["Next.js", "App Router", "MongoDB",
+    tech: [
+      "Next.js",
+      "App Router",
+      "MongoDB",
       "Node.js",
-      "Express.js", "Tailwind CSS"],
+      "Express.js",
+      "Tailwind CSS",
+    ],
   },
   {
     imgSrc: portfolio,
     title: "My Personal Portfolio Website",
     description:
-      "My personal portfolio showcases selected projects, skills, and experience with a polished, performant React stack—optimized routing, smooth sections, and contact built for quick recruiter scans",
+      "Projects, skills, and experience with smooth sections and recruiter-friendly navigation.",
     liveLink: "https://tasmim-rahman.vercel.app/",
-    frontEndLink:"https://github.com/tasmim20/tasmim-rahman",
-    tech: ["Next.js","Tailwind CSS", 'Framer Motion'],
+    frontEndLink: "https://github.com/tasmim20/tasmim-rahman",
+    tech: ["Next.js", "Tailwind CSS", "Framer Motion"],
   },
   {
     imgSrc: event,
     title: "event360",
     description:
-      "Kanban-style task management with team collaboration and real-time updates, where user can manage their event",
+      "Kanban-style task management for events with team collaboration.",
     liveLink: "https://event-360-three.vercel.app/",
     frontEndLink: "https://github.com/you/taskflow-client",
     backEndLink: "https://github.com/you/taskflow-server",
-     tech: ["Vite + React", "Tailwind CSS"],
+    tech: ["Vite + React", "Tailwind CSS"],
   },
 ];
 
@@ -232,35 +233,55 @@ const ProjectCard = ({
   </div>
 );
 
-const Projects: React.FC = () => {
+// ✅ PascalCase component; use the same `projects` variable
+const ProjectsComponent: React.FC = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [showAll, setShowAll] = useState(false);
+  console.log(setShowAll);
+
+  const visibleProjects = showAll ? projects : projects.slice(0, 3);
+
   const handleDetailsClick = (project: Project) => setSelectedProject(project);
   const handleCloseModal = () => setSelectedProject(null);
 
   return (
-    <div id="projects" className="my-10 mb-20 text-gray-300 mx-auto max-w-8xl">
-      <div className="ps-5 mt-16 mb-10 max-w-6xl mx-auto">
-        <h2 className="text-4xl font-bold mt-10">Check Out My Projects</h2>
-        <p className="mt-3">
-          Embark on a Journey Through My Diverse and Innovative Web Projects
-          Showcase, Where I Keep Abreast of the Latest Trends and Technologies
-          in the Field.
-        </p>
+    <div id="projects" className="mb-20  mx-auto max-w-8xl bg-[#050f25]">
+      <div className="mx-auto max-w-2xl text-center my-10">
+        <span className="inline-block rounded-full border border-white/10 px-4 py-1 text-xs tracking-wide text-white/70 backdrop-blur">
+          My Roadmap
+        </span>
+        <h2 className="my-4 text-3xl font-extrabold tracking-tight sm:text-4xl text-[#ff1493]">
+          Featured Projects
+        </h2>
+        <div className="mx-auto mt-5 h-1 w-20 rounded-full bg-white/70" />
       </div>
 
       <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3 mx-auto max-w-6xl">
-        {projects.map((project, index) => (
+        {visibleProjects.map((p, index) => (
           <ProjectCard
             key={index}
-            title={project.title}
-            imageSrc={project.imgSrc}
-            liveLink={project.liveLink}
-            frontEndLink={project.frontEndLink}
-            backEndLink={project.backEndLink}
-            onDetailsClick={() => handleDetailsClick(project)}
-            tech={project.tech}
+            title={p.title}
+            imageSrc={p.imgSrc}
+            liveLink={p.liveLink}
+            frontEndLink={p.frontEndLink}
+            backEndLink={p.backEndLink}
+            onDetailsClick={() => handleDetailsClick(p)}
+            tech={p.tech}
           />
         ))}
+      </div>
+
+      <div className="flex justify-center mt-10">
+        <Link href="/projects">
+          <button
+            style={{
+              boxShadow: "0 4px 15px rgba(255, 20, 147, 0.8)", // Neon glow effect
+            }}
+            className="mt-6 bg-transparent hover:bg-pink-700 text-pink-800 font-semibold hover:text-white py-2 px-6 border border-pink-800 hover:border-transparent rounded transition duration-300"
+          >
+            LOAD MORE
+          </button>
+        </Link>
       </div>
 
       {selectedProject && (
@@ -291,16 +312,17 @@ const Projects: React.FC = () => {
               </div>
             </div>
 
-            {selectedProject.features && selectedProject.features.length > 0 && (
-              <div className="mb-4">
-                <h4 className="font-semibold text-gray-900 mb-2">Features</h4>
-                <ul className="list-disc list-inside space-y-1 text-gray-800">
-                  {selectedProject.features.map((f, i) => (
-                    <li key={i}>{f}</li>
-                  ))}
-                </ul>
-              </div>
-            )}
+            {selectedProject.features &&
+              selectedProject.features.length > 0 && (
+                <div className="mb-4">
+                  <h4 className="font-semibold text-gray-900 mb-2">Features</h4>
+                  <ul className="list-disc list-inside space-y-1 text-gray-800">
+                    {selectedProject.features.map((f, i) => (
+                      <li key={i}>{f}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
 
             <div className="flex flex-wrap gap-4">
               <a
@@ -337,29 +359,8 @@ const Projects: React.FC = () => {
           </div>
         </div>
       )}
-      <section className="relative overflow-hidden py-20 text-center text-gray-300">
-      {/* dotted background */}
-      <div
-   
-      />
-
-      <div className="mx-auto max-w-3xl px-4 py-10">
-        <h2 className="text-xl font-semibold text-white sm:text-2xl">
-          In the realm of code, reality blurs.
-        </h2>
-        <p className="mt-3 text-white/80 leading-relaxed">
-          Every line is a whisper, every function a dream. We build, we break,
-          we create echoes of our imagination. If you wish to explore these
-          echoes or craft new ones together, feel free to reach out.
-        </p>
-
-        <p className="mt-8 inline-block rounded-lg bg-gradient-to-r from-indigo-500 to-purple-500 px-6 py-2 text-base font-semibold text-white shadow-lg">
-          Where ideas become reality, and reality becomes code.
-        </p>
-      </div>
-    </section>
     </div>
   );
 };
 
-export default Projects;
+export default ProjectsComponent;

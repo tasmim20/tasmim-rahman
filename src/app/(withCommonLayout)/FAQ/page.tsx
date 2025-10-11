@@ -20,7 +20,7 @@ export default function FAQ() {
           <span className="inline-block rounded-full border border-white/10 px-4 py-1 text-xs tracking-wide text-white/70 backdrop-blur">
             Have Questions? I Have Answers
           </span>
-          <h2 className="mt-4 text-4xl font-extrabold tracking-tight sm:text-5xl">
+          <h2 className="mt-4 text-3xl font-extrabold tracking-tight sm:text-4xl">
             Frequently Asked Questions
           </h2>
           <div className="mx-auto mt-3 h-1 w-20 rounded-full bg-white/70" />

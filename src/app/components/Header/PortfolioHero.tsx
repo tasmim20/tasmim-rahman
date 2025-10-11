@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useMemo } from "react";
-import download from "../../assets/cute-girl.png";
 import Image from "next/image";
 import Link from "next/link";
 import bulb from "../../assets/giphy.gif";
@@ -19,12 +18,11 @@ const PortfolioHero = () => {
   const [index, setIndex] = useState(0);
   const [typing, setTyping] = useState(true);
 
-  // Typewriter effect with cycling between titles
+  // Typewriter effect
   useEffect(() => {
-    const typingSpeed = 150; // Speed of typing each character
-    const deletingSpeed = 50; // Speed of deleting each character
-    const pauseTime = 2000; // Time to pause after typing a word
-
+    const typingSpeed = 150;
+    const deletingSpeed = 50;
+    const pauseTime = 2000;
     let charIndex = 0;
     let timeout: string | number | NodeJS.Timeout | undefined;
 
@@ -44,97 +42,184 @@ const PortfolioHero = () => {
           timeout = setTimeout(typeTitle, deletingSpeed);
         } else {
           setTyping(true);
-          setIndex((prevIndex) => (prevIndex + 1) % titles.length); // Cycle through titles
+          setIndex((prevIndex) => (prevIndex + 1) % titles.length);
         }
       }
     };
 
     timeout = setTimeout(typeTitle, typingSpeed);
-
-    return () => clearTimeout(timeout); // Cleanup the timeout on unmount
+    return () => clearTimeout(timeout);
   }, [index, typing, titles]);
 
-  // CSS keyframes for animations
-    // CSS keyframes for animations
+  // Animations
+
   const style = `
-    @keyframes glow {
-      0% {
+   @keyframes glow {
+     0% {
         text-shadow: 0 0 5px rgba(255, 105, 180, 0.8);
       }
-      50% {
+     50% {
         text-shadow: 0 0 10px rgba(255, 105, 180, 0.8);
       }
       100% {
-        text-shadow: 0 0 5px rgba(255, 105, 180, 0.8);
-      }
+         text-shadow: 0 0 5px rgba(255, 105, 180, 0.8);
+       }
     }
-    @keyframes blink-caret {
+     @keyframes blink-caret {
       from, to {
-        border-color: transparent;
+         border-color: transparent;
       }
-      50% {
+       50% {
         border-color: rgba(255, 105, 180, 0.8);
-      }
-    }
-  `;
+       }
+     }
+   `;
+  // const style = `
+  //   @keyframes blink-caret {
+  //     from, to { border-color: transparent; }
+  //     50% { border-color: rgba(255, 105, 180, 0.8); }
+  //   }
+  //   @keyframes hueShift {
+  //     0% { filter: hue-rotate(0deg); }
+  //     50% { filter: hue-rotate(180deg); }
+  //     100% { filter: hue-rotate(360deg); }
+  //   }
+  //   .animate-hue { animation: hueShift 18s linear infinite; }
+  // `;
 
   return (
-    <div className="text-gray-300 min-h-screen mx-auto max-w-7xl items-center relative mb-8">
-      <div className=" lg:block absolute top-3 right-5 mt-10">
-        <Image
-          src={bulb}
-          width={100}
-          height={100}
-          alt="Bulb"
-          className="rounded-lg   "
-        />
-      </div>
+    //     <section className="relative flex flex-col items-center justify-center min-h-screen  text-center text-gray-300 overflow-hidden px-4 -mt-5">
+    //       {/* Floating bulb */}
+
+    //       <style>{style}</style>
+
+    //       {/* Main content */}
+    //       <div className="flex flex-col items-center justify-center space-y-2">
+    //         {/* Intro + Typing text */}
+    //         <div>
+    //           <p className="text-5xl font-bold  ">
+    //             Hi, I’m <span className="">Tasmim Rahman </span>
+    //           </p>
+
+    //           <p
+    //             className="mt-2 text-3xl font-bold text-pink-400 border-r-2 border-pink-500 pr-1 inline-block overflow-hidden whitespace-nowrap"
+    //             style={{ animation: "blink-caret 0.75s step-end infinite" }}
+    //           >
+    //             {currentTitle}
+    //           </p>
+    //         </div>
+
+    //         {/* Title */}
+    //     <h1 className="text-4xl sm:text-6xl font-extrabold leading-tight text-white">
+    //   <span className="block animate-hue bg-gradient-to-r from-sky-400 via-indigo-400 to-fuchsia-400 bg-clip-text text-transparent">
+    //     <div className="flex items-center justify-center gap-3">
+    //       <span className="inline-block">Transforming Ideas</span>
+    //       <Image
+    //         src={bulb}
+    //         width={70}
+    //         height={70}
+    //         alt="Bulb"
+    //         className="inline-block translate-y-1" // small tweak for perfect alignment
+    //       />
+    //     </div>
+    //   </span>
+    //   <span className="block mt-1">into Interactive Realities</span>
+    // </h1>
+
+    //         {/* Description */}
+    //         <p className="mx-auto my-4 max-w-2xl text-base sm:text-lg leading-relaxed text-white/80">
+    //           I build fast, accessible web apps with React, Next.js & TypeScript.
+    //           Let’s turn concepts into beautiful, high-performance digital experiences.
+    //         </p>
+
+    //         {/* Buttons */}
+    //         <div className="py-5">
+    //   <div className="flex flex-wrap justify-center gap-4 ">
+    //           <Link href="projects">
+    //             <button className="bg-gradient-to-r from-sky-500 to-indigo-500 hover:brightness-110 text-white font-semibold py-2 px-6 rounded-xl shadow-lg transition hover:shadow-xl uppercase">
+    //               View Projects →
+    //             </button>
+    //           </Link>
+
+    //           <Link href="/contact">
+    //             <button className="bg-transparent hover:bg-white/10 border border-white/20 text-white/80 font-semibold py-2 px-6 rounded-xl backdrop-blur transition uppercase">
+    //               Contact Me
+    //             </button>
+    //           </Link>
+    //         </div>
+    //         </div>
+
+    //       </div>
+    //     </section>
+    <section className="relative flex flex-col items-center justify-center min-h-screen text-center text-gray-300 overflow-hidden px-4 -mt-5">
       <style>{style}</style>
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center my-10 space-y-8">
-        <div className="text-center">
-          <Image
-            src={download}
-            width={300}
-            height={300}
-            alt="Tasmim Rahman"
-            className="rounded-lg"
-          />
+
+      {/* Main content */}
+      <div className="flex flex-col items-center justify-center space-y-3 max-w-3xl w-full">
+        {/* Intro + Typing text */}
+        <div>
+          <p className=" text-3xl md:text-4xl lg:text-5xl  font-bold">
+            Hi, I’m <span>Tasmim Rahman</span>
+          </p>
+
+          <p
+            className="mt-2 text-lg sm:text-3xl -mb-2 font-bold text-pink-400 border-r-2 border-pink-500 pr-1 inline-block overflow-hidden whitespace-nowrap"
+            style={{ animation: "blink-caret 0.75s step-end infinite" }}
+          >
+            {currentTitle}
+          </p>
         </div>
 
-        {/* Text Section */}
-        <div className="text-center">
-          <h1 className="text-4xl font-bold mb-4 -mt-5">
-            Hey There!
-            <br />
-            I&apos;m <span className="text-pink-700">Tasmim Rahman</span>
-            <br />
-            <span
-              className="inline-block overflow-hidden whitespace-nowrap border-r-2 border-pink-600 pr-1"
-              style={{
-                animation: "blink-caret 0.75s step-end infinite",
-              }}
-            >
-              {currentTitle}
-            </span>
-          </h1>
+        {/* Title */}
+        <h1 className="text-2xl md:text-4xl lg:text-5xl font-extrabold leading-tight md:leading-[1.1] text-white text-balance">
+          <span className="block animate-hue bg-gradient-to-r from-sky-400 via-indigo-400 to-fuchsia-400 bg-clip-text text-transparent">
+            {/* On mobile: stack vertically; on larger screens: inline */}
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-0">
+              <span className="inline-block">Transforming Ideas</span>
+              <Image
+                src={bulb}
+                width={70}
+                height={70}
+                alt="Bulb"
+                className="inline-block w-8 h-8 sm:w-[70px] sm:h-[70px] translate-y-0 sm:translate-y-1"
+              />
+            </div>
+          </span>
+          <span className="block mt-1 text-gray-300">
+            into Interactive Realities
+          </span>
+        </h1>
 
-          {/* Buttons */}
-          <div className="space-x-4 space-y-2">
+        {/* Description */}
+        <p className="mx-auto my-4 max-w-2xl text-sm sm:text-base md:text-lg leading-relaxed text-gray-300">
+          I build fast, accessible web apps with React, Next.js & TypeScript.
+          Let’s turn concepts into beautiful, high-performance digital
+          experiences.
+        </p>
+
+        {/* Buttons */}
+        <div className="py-5">
+          <div className="flex flex-wrap justify-center gap-3 sm:gap-4">
             <Link href="projects">
-              <button className="bg-transparent uppercase hover:bg-pink-700 text-pink-800 font-semibold hover:text-white py-2 px-4 border border-pink-800  hover:border-transparent rounded">
-                See my Latest Works
+              <button
+                style={{
+                  boxShadow: "0 4px 15px rgba(255, 20, 147, 0.8)", // Neon glow effect
+                }}
+                className=" bg-transparent hover:bg-pink-700 text-pink-800 font-semibold hover:text-white py-2 px-6 border border-pink-800 hover:border-transparent rounded transition duration-300"
+              >
+                View Projects →
               </button>
             </Link>
 
             <Link href="/contact">
-              <button className="bg-transparent hover:bg-pink-700 text-pink-800 font-semibold hover:text-white py-2 px-4 border mt-2 border-pink-800 hover:border-transparent rounded">
-                CONTACT ME
+              <button className=" bg-transparent hover:bg-pink-700 text-pink-800 font-semibold hover:text-white py-2 px-6 border border-gray-800   duration-300">
+                Contact me
               </button>
             </Link>
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

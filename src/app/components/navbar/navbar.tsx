@@ -1,17 +1,8 @@
 "use client";
 import React, { useState } from "react";
-import {
-  Menu,
-  X,
-  File,
-  Scroll,
-  Briefcase,
-  Mail,
-  ChevronRight,
-  ChevronLeft,
-} from "lucide-react";
+import { Menu, X, Scroll, Mail, ChevronRight, ChevronLeft } from "lucide-react";
 import Link from "next/link";
-import { RiProfileFill } from "react-icons/ri";
+import { RiArticleLine, RiProfileFill, RiToolsFill } from "react-icons/ri";
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -27,9 +18,9 @@ const Navbar: React.FC = () => {
   const menuItems = [
     { name: "About", icon: <RiProfileFill size={16} /> },
     { name: "Projects", icon: <Scroll size={16} /> },
-    { name: "Services", icon: <Briefcase size={16} /> },
-    { name: "Resume", icon: <File size={16} /> },
     { name: "Hire", icon: <Mail size={16} /> },
+    { name: "Uses", icon: <RiToolsFill size={16} /> },
+    { name: "Blog", icon: <RiArticleLine size={16} /> },
   ];
 
   return (
@@ -61,7 +52,7 @@ const Navbar: React.FC = () => {
             <Link
               href={`/${item.name.toLowerCase()}`}
               key={item.name}
-              className="flex items-center space-x-2 text-gray-300 px-2 py-2 rounded hover:bg-pink-800"
+              className="flex items-center space-x-2 text-gray-300 px-2 py-1 rounded hover:bg-pink-800"
               style={{
                 textShadow: "0 0 5px rgba(255, 105, 180, 0.8)", // Neon text glow
               }}
@@ -74,15 +65,16 @@ const Navbar: React.FC = () => {
       </div>
 
       {/* Contact Button */}
-      <Link
-        href="/contact"
-        style={{
-          backgroundColor: "rgba(255, 20, 147, 0.6)",
-          boxShadow: "0 4px 15px rgba(255, 20, 147, 0.8)",
-        }}
-        className="text-white px-4 py-2 rounded hidden md:block"
-      >
-        Hit me Up
+      <Link href="/Tasmim_Rahman_Resume.pdf" target="_blank">
+        <button
+          style={{
+            backgroundColor: "rgba(255, 20, 147, 0.6)",
+            boxShadow: "0 4px 15px rgba(255, 20, 147, 0.8)",
+          }}
+          className="rounded-md px-5 py-2 font-semibold  text-gray-300 transition-transform duration-300 hover:scale-105"
+        >
+          Download Resume
+        </button>
       </Link>
 
       {/* Mobile Menu Button */}
@@ -115,7 +107,7 @@ const Navbar: React.FC = () => {
             </Link>
           ))}
           {/* Mobile Contact Button */}
-          <Link
+          {/* <Link
             href="/contact"
             style={{
               backgroundColor: "rgba(255, 20, 147, 0.8)",
@@ -123,8 +115,21 @@ const Navbar: React.FC = () => {
             className="text-gray-300  px-4 py-2 rounded w-full mt-4"
             onClick={closeMenu} // Close the menu when link is clicked
           >
-            Hit me Up
-          </Link>
+           Download Resume
+          </Link> */}
+          <div className="mt-12 text-center">
+            <a
+              href="../../assets/Tasmim Rahman_MERN Stack Developer_Resume.pdf"
+              download
+              className="rounded-md px-5 py-3 font-semibold uppercase text-gray-300 transition-transform duration-300 hover:scale-105"
+              style={{
+                backgroundColor: "rgba(255, 20, 147, 0.6)",
+                boxShadow: "0 4px 15px rgba(255, 20, 147, 0.8)",
+              }}
+            >
+              Download Resume
+            </a>
+          </div>
         </div>
       </div>
 
