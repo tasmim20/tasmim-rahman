@@ -1,3 +1,4 @@
+"use client";
 import { motion } from "framer-motion";
 import type { Variants, Transition } from "framer-motion";
 import { RiRocketFill } from "react-icons/ri";
@@ -6,7 +7,10 @@ import { FiTarget } from "react-icons/fi";
 
 export default function Goals() {
   return (
-    <section aria-label="Career Goals" className="relative overflow-hidden py-20 sm:py-24">
+    <section
+      aria-label="Career Goals"
+      className="relative overflow-hidden py-20 sm:py-24"
+    >
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(1200px_600px_at_80%_40%,rgba(168,85,247,0.12),transparent_60%),radial-gradient(1000px_500px_at_20%_70%,rgba(59,130,246,0.12),transparent_60%)]"
@@ -55,7 +59,6 @@ export default function Goals() {
     </section>
   );
 }
-
 
 type GoalCardProps = {
   icon: React.ReactNode;

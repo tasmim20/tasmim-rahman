@@ -65,7 +65,7 @@ const Navbar: React.FC = () => {
       </div>
 
       {/* Contact Button */}
-      <Link href="/Tasmim_Rahman_Resume.pdf" target="_blank">
+      {/* <Link href="/Tasmim_Rahman_Resume.pdf" target="_blank">
         <button
           style={{
             backgroundColor: "rgba(255, 20, 147, 0.6)",
@@ -75,8 +75,18 @@ const Navbar: React.FC = () => {
         >
           Download Resume
         </button>
-      </Link>
-
+      </Link> */}
+      <a
+        href="/Tasmim_Rahman_Resume.pdf"
+        download
+        className="rounded-md px-5 py-3 font-semibold uppercase text-gray-300 transition-transform duration-300 hover:scale-105"
+        style={{
+          backgroundColor: "rgba(255, 20, 147, 0.6)",
+          boxShadow: "0 4px 15px rgba(255, 20, 147, 0.8)",
+        }}
+      >
+        Download Resume
+      </a>
       {/* Mobile Menu Button */}
       <button onClick={toggleMenu} className="md:hidden z-30">
         {isOpen ? <X size={24} className="text-black" /> : <Menu size={24} />}
@@ -119,7 +129,7 @@ const Navbar: React.FC = () => {
           </Link> */}
           <div className="mt-12 text-center">
             <a
-              href="../../assets/Tasmim Rahman_MERN Stack Developer_Resume.pdf"
+              href="/Tasmim_Rahman_Resume.pdf"
               download
               className="rounded-md px-5 py-3 font-semibold uppercase text-gray-300 transition-transform duration-300 hover:scale-105"
               style={{
